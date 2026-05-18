@@ -39,4 +39,5 @@ npm audit --omit=dev
 - `.env.local` nicht committen.
 - Upstash Redis nativ im Vercel-Projekt installieren.
 - `SURVEY_PASSWORD` und `ADMIN_PASSWORD` in Vercel setzen.
+- Framework Preset: Next.js. Output Directory leer lassen.
 - Nach dem Deployment einmal `/`, `/admin` und den CSV-Export prüfen.
