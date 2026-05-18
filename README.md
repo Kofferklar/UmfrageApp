@@ -2,6 +2,8 @@
 
 Interne Next.js-App für die GAD-Mini-Studie zu Vertrauen in medizinische KI-Entscheidungen.
 
+Die methodische und technische Herleitung steht in [docs/konzept-und-entscheidungen.md](docs/konzept-und-entscheidungen.md).
+
 ## Lokal starten
 
 ```bash
