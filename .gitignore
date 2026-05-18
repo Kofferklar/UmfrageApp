@@ -1,0 +1,12 @@
+.DS_Store
+.codex/
+node_modules/
+.next/
+out/
+dist/
+coverage/
+.env
+.env*.local
+!.env.example
+*.tsbuildinfo
+data/local-responses.json
