@@ -5,11 +5,11 @@ export const APP_VERSION = "1.0";
 export const TRUST_QUESTION = "Wie sehr würden Sie der KI in dieser Situation vertrauen?";
 
 export const SCALE_OPTIONS = [
-  { value: 1, label: "vertraue gar nicht" },
-  { value: 2, label: "vertraue eher nicht" },
-  { value: 3, label: "teils/teils" },
-  { value: 4, label: "vertraue eher" },
-  { value: 5, label: "vertraue voll und ganz" },
+  { value: 1, label: "vertraue gar nicht", shortLabel: "gar nicht" },
+  { value: 2, label: "vertraue eher nicht", shortLabel: "eher nicht" },
+  { value: 3, label: "teils/teils", shortLabel: "teils/teils" },
+  { value: 4, label: "vertraue eher", shortLabel: "eher" },
+  { value: 5, label: "vertraue voll und ganz", shortLabel: "voll" },
 ] as const;
 
 export const VARIANT_TEXT: Record<Variant, { title: string; body: string }> = {

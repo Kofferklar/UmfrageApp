@@ -1,5 +1,5 @@
 import { SCENARIO_IDS } from "./survey";
-import type { ScenarioId, SurveyOrderItem, Variant, VariantOrderMap } from "./types";
+import type { ScenarioId, SurveyOrderItem, VariantOrderMap } from "./types";
 
 export type CreatedSurveyOrder = {
   scenarioOrder: ScenarioId[];
@@ -18,18 +18,51 @@ function shuffle<T>(items: readonly T[], random: () => number): T[] {
   return shuffled;
 }
 
-export function createSurveyOrder(random: () => number = Math.random): CreatedSurveyOrder {
-  const scenarioOrder = shuffle(SCENARIO_IDS, random);
-  const variantOrder: VariantOrderMap = {};
-  const items: SurveyOrderItem[] = [];
+function createMixedQuestionItems(random: () => number): SurveyOrderItem[] {
+  const allItems = shuffle(
+    SCENARIO_IDS.flatMap((scenarioId) => [
+      { scenarioId, variant: "A" as const },
+      { scenarioId, variant: "B" as const },
+    ]),
+    random,
+  );
 
-  for (const scenarioId of scenarioOrder) {
-    const order = random() < 0.5 ? "AB" : "BA";
-    variantOrder[String(scenarioId)] = order;
-
-    for (const variant of order.split("") as Variant[]) {
-      items.push({ scenarioId, variant });
+  function arrange(remaining: SurveyOrderItem[], previousScenarioId?: ScenarioId): SurveyOrderItem[] | null {
+    if (remaining.length === 0) {
+      return [];
     }
+
+    const candidates = shuffle(
+      remaining.map((item, index) => ({ item, index })),
+      random,
+    ).filter(({ item }) => item.scenarioId !== previousScenarioId);
+
+    for (const candidate of candidates) {
+      const nextRemaining = remaining.filter((_, index) => index !== candidate.index);
+      const rest = arrange(nextRemaining, candidate.item.scenarioId);
+
+      if (rest) {
+        return [candidate.item, ...rest];
+      }
+    }
+
+    return null;
+  }
+
+  return arrange(allItems) ?? allItems;
+}
+
+export function createSurveyOrder(random: () => number = Math.random): CreatedSurveyOrder {
+  const items = createMixedQuestionItems(random);
+  const scenarioOrder = [...new Set(items.map((item) => item.scenarioId))];
+  const variantOrder: VariantOrderMap = {};
+
+  for (const scenarioId of SCENARIO_IDS) {
+    const order = items
+      .filter((item) => item.scenarioId === scenarioId)
+      .map((item) => item.variant)
+      .join("") as "AB" | "BA";
+    variantOrder[String(scenarioId)] = order;
   }
 
   return { scenarioOrder, variantOrder, items };

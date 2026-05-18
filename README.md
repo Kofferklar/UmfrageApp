@@ -4,6 +4,15 @@ Interne Next.js-App für die GAD-Mini-Studie zu Vertrauen in medizinische KI-Ent
 
 Die methodische und technische Herleitung steht in [docs/konzept-und-entscheidungen.md](docs/konzept-und-entscheidungen.md).
 
+## Aktueller Survey-Stand
+
+- 20 Fragen: zehn medizinische Szenarien mit je zwei Varianten.
+- Variante A: KI empfiehlt, ein Mensch entscheidet final.
+- Variante B: KI entscheidet autonom.
+- Die 20 Fragen werden pro Person gemischt; A und B desselben Szenarios erscheinen nicht direkt hintereinander.
+- Die Risikoeinstufung bleibt intern und wird Teilnehmenden nicht angezeigt.
+- Die mobile Ansicht ist auf eine Frage pro Bildschirm ausgelegt, mit kompakter 1-5-Skala.
+
 ## Lokal starten
 
 ```bash

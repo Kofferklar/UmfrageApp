@@ -17,6 +17,8 @@ Beide Bereiche haben getrennte Passwörter. So können Teilnehmende nur den Frag
 
 Der Survey läuft als eine Frage pro Bildschirm. Jede Frage zeigt genau eine Variante eines Szenarios. Das ist absichtlich so gewählt: Auf dem Smartphone bleibt der Bildschirm ruhig, die Skala ist gut antippbar, und die Teilnehmenden müssen nicht mehrere Antwortblöcke gleichzeitig vergleichen.
 
+Die mobile Ansicht wurde bewusst knapp gehalten. Auf kleinen Bildschirmen stehen unter den Zahlen 1 bis 5 nur kurze Skalenlabels. Die ausführliche Legende bleibt auf größeren Bildschirmen sichtbar. Im Browsercheck mit 390 x 844 px passten alle 20 Fragen ohne Scrollen in den sichtbaren Bereich.
+
 ## Methodische Herleitung
 
 Die Studie vergleicht zehn medizinische Entscheidungssituationen. Jedes Szenario hat zwei Varianten:
@@ -24,9 +26,9 @@ Die Studie vergleicht zehn medizinische Entscheidungssituationen. Jedes Szenario
 - Variante A: Die KI gibt eine Empfehlung, ein Mensch entscheidet final.
 - Variante B: Die KI entscheidet vollständig autonom.
 
-Damit H2 sauber prüfbar bleibt, werden A und B für jedes Szenario direkt hintereinander gezeigt. So bleibt der Kontext gleich, aber die Entscheidungsform ändert sich.
+Damit H2 sauber prüfbar bleibt, werden beide Varianten jedes Szenarios erhoben. Sie werden aber nicht mehr direkt hintereinander gezeigt. Die 20 Fragen werden pro Person gemischt, und die App verhindert, dass zwei Fragen zum selben Szenario unmittelbar aufeinander folgen. Dadurch wird weniger offensichtlich, dass gerade Variante A und B desselben Falls verglichen werden.
 
-Die Reihenfolge der Szenarien wird pro Person zufällig gemischt. Zusätzlich wird pro Szenario zufällig entschieden, ob zuerst A oder B erscheint. Dadurch sollen feste Reihenfolgeeffekte reduziert werden. Die tatsächliche Reihenfolge wird mitgespeichert, damit sie später nachvollziehbar bleibt.
+Die tatsächliche Reihenfolge wird mitgespeichert, damit sie später nachvollziehbar bleibt. Zusätzlich wird pro Szenario gespeichert, ob Variante A oder B zuerst erschien.
 
 Die Risikogruppen sind zentral für H1:
 
@@ -35,6 +37,8 @@ Die Risikogruppen sind zentral für H1:
 - hoch: Szenario 7, 8, 9 und 10
 
 Der Adminbereich berechnet deshalb nicht nur Werte pro Szenario, sondern auch Mittelwerte nach Risikogruppe.
+
+Die Risikoeinstufung wird nur intern genutzt. Sie wird den Teilnehmenden im Fragebogen nicht angezeigt, damit die Kategorien niedrig, mittel und hoch die Antworten nicht vorprägen.
 
 ## Datenschutz
 

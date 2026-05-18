@@ -359,40 +359,38 @@ export function SurveyApp({ isPretest }: SurveyAppProps) {
   }
 
   return (
-    <main className="min-h-dvh bg-[var(--color-bg)] px-4 py-4 text-[var(--color-text)] sm:px-6">
+    <main className="min-h-dvh bg-[var(--color-bg)] px-3 py-2 text-[var(--color-text)] sm:px-6 sm:py-4">
       <section className="mx-auto w-full max-w-2xl">
-        <div className="sticky top-0 z-10 -mx-4 border-b border-[var(--color-line)] bg-[var(--color-bg)] px-4 py-3 sm:-mx-6 sm:px-6">
+        <div className="sticky top-0 z-10 -mx-3 border-b border-[var(--color-line)] bg-[var(--color-bg)] px-3 py-2 sm:-mx-6 sm:px-6 sm:py-3">
           <div className="mx-auto max-w-2xl">
-            <div className="flex items-center justify-between gap-4 text-sm font-medium text-[var(--color-muted)]">
+            <div className="flex items-center justify-between gap-4 text-xs font-medium text-[var(--color-muted)] sm:text-sm">
               <span>
                 Frage {currentIndex + 1} von {surveyOrder.items.length}
               </span>
-              <span>{completedCount} beantwortet</span>
+              <span className="hidden sm:inline">{completedCount} beantwortet</span>
             </div>
-            <div className="mt-2 h-2 overflow-hidden rounded-full bg-[var(--color-line)]">
+            <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-[var(--color-line)] sm:mt-2 sm:h-2">
               <div className="h-full rounded-full bg-[var(--color-accent)] transition-[width]" style={{ width: `${progressValue}%` }} />
             </div>
           </div>
         </div>
 
-        <div className="py-5 sm:py-8">
-          <div className="rounded-[0.75rem] border border-[var(--color-line)] bg-[var(--color-surface)] p-5 shadow-sm sm:p-8">
+        <div className="py-3 sm:py-8">
+          <div className="rounded-[0.65rem] border border-[var(--color-line)] bg-[var(--color-surface)] p-4 shadow-sm sm:rounded-[0.75rem] sm:p-8">
             <div className="flex flex-wrap items-center gap-2 text-sm font-medium text-[var(--color-muted)]">
               <span>Szenario {currentScenario.id}</span>
-              <span className="h-1 w-1 rounded-full bg-[var(--color-muted)]" aria-hidden="true" />
-              <span>Risiko: {currentScenario.risk === "low" ? "niedrig" : currentScenario.risk === "medium" ? "mittel" : "hoch"}</span>
             </div>
-            <h1 className="mt-3 text-2xl font-semibold leading-tight text-[var(--color-heading)]">{currentScenario.title}</h1>
-            <p className="mt-4 text-base leading-relaxed text-[var(--color-text)]">{currentScenario.text}</p>
+            <h1 className="mt-2 text-xl font-semibold leading-tight text-[var(--color-heading)] sm:mt-3 sm:text-2xl">{currentScenario.title}</h1>
+            <p className="mt-3 text-sm leading-relaxed text-[var(--color-text)] sm:mt-4 sm:text-base">{currentScenario.text}</p>
 
-            <div className="mt-6 rounded-[0.65rem] border border-[var(--color-line)] bg-[var(--color-soft)] p-4">
+            <div className="mt-4 rounded-[0.55rem] border border-[var(--color-line)] bg-[var(--color-soft)] p-3 sm:mt-6 sm:rounded-[0.65rem] sm:p-4">
               <p className="text-sm font-semibold text-[var(--color-heading)]">{VARIANT_TEXT[currentItem.variant].title}</p>
-              <p className="mt-2 text-base leading-relaxed text-[var(--color-text)]">{VARIANT_TEXT[currentItem.variant].body}</p>
+              <p className="mt-1.5 text-sm leading-relaxed text-[var(--color-text)] sm:mt-2 sm:text-base">{VARIANT_TEXT[currentItem.variant].body}</p>
             </div>
 
-            <fieldset className="mt-7">
-              <legend className="text-lg font-semibold leading-snug text-[var(--color-heading)]">{TRUST_QUESTION}</legend>
-              <div className="mt-4 grid grid-cols-5 gap-2" role="radiogroup" aria-label={TRUST_QUESTION}>
+            <fieldset className="mt-5 sm:mt-7">
+              <legend className="text-base font-semibold leading-snug text-[var(--color-heading)] sm:text-lg">{TRUST_QUESTION}</legend>
+              <div className="mt-3 grid grid-cols-5 gap-1.5 sm:mt-4 sm:gap-2" role="radiogroup" aria-label={TRUST_QUESTION}>
                 {SCALE_OPTIONS.map((option) => (
                   <label key={option.value} className="cursor-pointer">
                     <input
@@ -401,15 +399,19 @@ export function SurveyApp({ isPretest }: SurveyAppProps) {
                       value={option.value}
                       checked={currentValue === option.value}
                       onChange={() => setAnswer(option.value)}
+                      aria-label={`${option.value} = ${option.label}`}
                       className="peer sr-only"
                     />
-                    <span className="flex min-h-12 items-center justify-center rounded-[0.6rem] border border-[var(--color-line)] bg-white text-base font-semibold text-[var(--color-heading)] transition peer-focus-visible:ring-4 peer-focus-visible:ring-[var(--color-accent-soft)] peer-checked:border-[var(--color-accent)] peer-checked:bg-[var(--color-accent)] peer-checked:text-white active:scale-[0.97]">
+                    <span className="flex min-h-10 items-center justify-center rounded-[0.5rem] border border-[var(--color-line)] bg-white text-base font-semibold text-[var(--color-heading)] transition peer-focus-visible:ring-4 peer-focus-visible:ring-[var(--color-accent-soft)] peer-checked:border-[var(--color-accent)] peer-checked:bg-[var(--color-accent)] peer-checked:text-white active:scale-[0.97] sm:min-h-12 sm:rounded-[0.6rem]">
                       {option.value}
+                    </span>
+                    <span className="mt-1 block text-center text-[0.65rem] font-medium leading-tight text-[var(--color-muted)] sm:hidden">
+                      {option.shortLabel}
                     </span>
                   </label>
                 ))}
               </div>
-              <div className="mt-4 grid gap-2 text-sm text-[var(--color-muted)]">
+              <div className="mt-4 hidden gap-2 text-sm text-[var(--color-muted)] sm:grid">
                 {SCALE_OPTIONS.map((option) => (
                   <div key={option.value} className="flex gap-2">
                     <span className="w-5 shrink-0 font-semibold text-[var(--color-heading)]">{option.value}</span>
@@ -421,19 +423,19 @@ export function SurveyApp({ isPretest }: SurveyAppProps) {
             </fieldset>
           </div>
 
-          <div className="mt-4 flex gap-3">
+          <div className="mt-3 flex gap-2 sm:mt-4 sm:gap-3">
             <button
               type="button"
               onClick={goBack}
               disabled={currentIndex === 0}
-              className="min-h-12 flex-1 rounded-[0.6rem] border border-[var(--color-line)] px-5 text-base font-semibold text-[var(--color-heading)] transition active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-45"
+              className="min-h-11 flex-1 rounded-[0.55rem] border border-[var(--color-line)] px-4 text-base font-semibold text-[var(--color-heading)] transition active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-45 sm:min-h-12 sm:rounded-[0.6rem] sm:px-5"
             >
               Zurück
             </button>
             <button
               type="button"
               onClick={goNext}
-              className="min-h-12 flex-1 rounded-[0.6rem] bg-[var(--color-accent)] px-5 text-base font-semibold text-white transition hover:bg-[var(--color-accent-strong)] active:scale-[0.99]"
+              className="min-h-11 flex-1 rounded-[0.55rem] bg-[var(--color-accent)] px-4 text-base font-semibold text-white transition hover:bg-[var(--color-accent-strong)] active:scale-[0.99] sm:min-h-12 sm:rounded-[0.6rem] sm:px-5"
             >
               {currentIndex === surveyOrder.items.length - 1 ? "Zur Übersicht" : "Weiter"}
             </button>
