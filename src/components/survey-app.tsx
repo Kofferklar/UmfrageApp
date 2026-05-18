@@ -383,8 +383,14 @@ export function SurveyApp({ isPretest }: SurveyAppProps) {
             <h1 className="mt-2 text-xl font-semibold leading-tight text-[var(--color-heading)] sm:mt-3 sm:text-2xl">{currentScenario.title}</h1>
             <p className="mt-3 text-sm leading-relaxed text-[var(--color-text)] sm:mt-4 sm:text-base">{currentScenario.text}</p>
 
-            <div className="mt-4 rounded-[0.55rem] border border-[var(--color-line)] bg-[var(--color-soft)] p-3 sm:mt-6 sm:rounded-[0.65rem] sm:p-4">
-              <p className="text-sm font-semibold text-[var(--color-heading)]">{VARIANT_TEXT[currentItem.variant].title}</p>
+            <div
+              className={`mt-4 rounded-[0.55rem] border p-3 sm:mt-6 sm:rounded-[0.65rem] sm:p-4 ${
+                currentItem.variant === "A" ? "border-emerald-200 bg-emerald-50" : "border-red-200 bg-red-50"
+              }`}
+            >
+              <p className={`text-sm font-semibold ${currentItem.variant === "A" ? "text-emerald-900" : "text-red-900"}`}>
+                {VARIANT_TEXT[currentItem.variant].title}
+              </p>
               <p className="mt-1.5 text-sm leading-relaxed text-[var(--color-text)] sm:mt-2 sm:text-base">{VARIANT_TEXT[currentItem.variant].body}</p>
             </div>
 
