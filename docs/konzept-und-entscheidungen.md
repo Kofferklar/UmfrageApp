@@ -19,6 +19,8 @@ Der Survey läuft als eine Frage pro Bildschirm. Jede Frage zeigt genau eine Var
 
 Die mobile Ansicht wurde bewusst knapp gehalten. Auf kleinen Bildschirmen stehen unter den Zahlen 1 bis 5 nur kurze Skalenlabels. Die ausführliche Legende bleibt auf größeren Bildschirmen sichtbar. Im Browsercheck mit 390 x 844 px passten alle 20 Fragen ohne Scrollen in den sichtbaren Bereich.
 
+Die beiden Varianten werden farblich unterschieden, aber nicht mit Rot und Grün markiert. Rot und Grün könnten wie eine Bewertung wirken, also wie falsch/richtig oder schlecht/gut. Deshalb nutzt die App zwei auffällige, aber neutralere Farben: Teal für die Empfehlungsvariante und Indigo für die autonome Entscheidungsvariante. Die Farben dienen nur der Orientierung.
+
 ## Methodische Herleitung
 
 Die Studie vergleicht zehn medizinische Entscheidungssituationen. Jedes Szenario hat zwei Varianten:

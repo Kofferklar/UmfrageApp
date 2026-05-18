@@ -385,10 +385,10 @@ export function SurveyApp({ isPretest }: SurveyAppProps) {
 
             <div
               className={`mt-4 rounded-[0.55rem] border p-3 sm:mt-6 sm:rounded-[0.65rem] sm:p-4 ${
-                currentItem.variant === "A" ? "border-sky-300 bg-sky-50" : "border-violet-300 bg-violet-50"
+                currentItem.variant === "A" ? "border-teal-300 bg-teal-50" : "border-indigo-300 bg-indigo-50"
               }`}
             >
-              <p className={`text-sm font-semibold ${currentItem.variant === "A" ? "text-sky-950" : "text-violet-950"}`}>
+              <p className={`text-sm font-semibold ${currentItem.variant === "A" ? "text-teal-950" : "text-indigo-950"}`}>
                 {VARIANT_TEXT[currentItem.variant].title}
               </p>
               <p className="mt-1.5 text-sm leading-relaxed text-[var(--color-text)] sm:mt-2 sm:text-base">{VARIANT_TEXT[currentItem.variant].body}</p>

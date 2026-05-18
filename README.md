@@ -12,6 +12,7 @@ Die methodische und technische Herleitung steht in [docs/konzept-und-entscheidun
 - Die 20 Fragen werden pro Person gemischt; A und B desselben Szenarios erscheinen nicht direkt hintereinander.
 - Die Risikoeinstufung bleibt intern und wird Teilnehmenden nicht angezeigt.
 - Die mobile Ansicht ist auf eine Frage pro Bildschirm ausgelegt, mit kompakter 1-5-Skala.
+- Die Variantenkarten nutzen Teal und Indigo statt Rot/Grün, damit die Farben nicht wie eine Bewertung wirken.
 
 ## Lokal starten
 
